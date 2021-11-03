@@ -1,0 +1,27 @@
+
+
+[Unit]
+Description=Runs mytimer every hour
+
+[Timer]
+OnUnitActiveSec=1h
+Unit=mytimer.service
+
+[Install]
+WantedBy=multi-user.target
+
+
+[Unit]部分定義元數據。
+
+[Timer]部分定制定時器。 Systemd 提供以下一些字段。
+
+OnActiveSec：定時器生效後，多少時間開始執行任務
+OnBootSec：系統啟動後，多少時間開始執行任務
+OnStartupSec：Systemd 進程啟動後，多少時間開始執行任務
+OnUnitActiveSec：該單元上次執行後，等多少時間再次執行
+OnUnitInactiveSec： 定時器上次關閉後多少時間，再次執行
+OnCalendar：基於絕對時間，而不是相對時間執行
+AccuracySec：如果因為各種原因，任務必須推遲執行，推遲的最大秒數，默認是60秒
+Unit：真正要執行的任務，默認是同名的帶有.service後綴的單元
+Persistent：如果設置了該字段，即使定時器到時沒有啟動，也會自動執行相應的單元
+WakeSystem：如果系統休眠，是否自動喚醒系統

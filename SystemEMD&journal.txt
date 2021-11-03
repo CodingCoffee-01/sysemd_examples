@@ -1,0 +1,441 @@
+
+sudo chmod 664 /etc/systemd/system/nodejsserver.service
+
+
+systemctl list-units --all
+
+systemctl list-units --all --state=inactive
+
+systemctl list-units --type=service
+
+systemctl cat atd.service
+
+systemctl list-dependencies sshd.service
+
+systemctl show sshd.service -p MainPID
+
+sudo systemctl mask nginx.service
+
+sudo systemctl start nginx.service
+
+sudo systemctl unmask nginx.service
+
+sudo systemctl edit nginx.service
+
+sudo systemctl edit --full nginx.service
+
+sudo rm -r /etc/systemd/system/nginx.service.d
+
+sudo systemctl daemon-reload
+
+# 查看整个日志
+$ sudo journalctl
+
+# 查看 mytimer.timer 的日志
+$ sudo journalctl -u mytimer.timer
+
+# 查看 mytimer.timer 和 mytimer.service 的日志
+$ sudo journalctl -u mytimer
+
+# 从结尾开始查看最新日志
+$ sudo journalctl -f
+
+# 从结尾开始查看 mytimer.timer 的日志
+$ journalctl -f -u timer.timer
+
+
+systemctl list-units   -- Romulus Image
+
+
+sys-devices-platform-ahb-1e620000.spi-mtd-mtd0-mtd1-mtdblock1.device                                                      loaded active plugged   /sys/devices/platform/ahb/1e620000.spi/mtd/mtd0/mtd1/mtdblock1                                         
+  sys-devices-platform-ahb-1e620000.spi-mtd-mtd0-mtd2-mtdblock2.device                                                      loaded active plugged   /sys/devices/platform/ahb/1e620000.spi/mtd/mtd0/mtd2/mtdblock2                                         
+  sys-devices-platform-ahb-1e620000.spi-mtd-mtd0-mtd3-mtdblock3.device                                                      loaded active plugged   /sys/devices/platform/ahb/1e620000.spi/mtd/mtd0/mtd3/mtdblock3                                         
+  sys-devices-platform-ahb-1e620000.spi-mtd-mtd0-mtd4-mtdblock4.device                                                      loaded active plugged   /sys/devices/platform/ahb/1e620000.spi/mtd/mtd0/mtd4/mtdblock4                                         
+  sys-devices-platform-ahb-1e620000.spi-mtd-mtd0-mtd5-mtdblock5.device                                                      loaded active plugged   /sys/devices/platform/ahb/1e620000.spi/mtd/mtd0/mtd5/mtdblock5                                         
+  sys-devices-platform-ahb-1e620000.spi-mtd-mtd0-mtdblock0.device                                                           loaded active plugged   /sys/devices/platform/ahb/1e620000.spi/mtd/mtd0/mtdblock0                                              
+  sys-devices-platform-ahb-1e630000.spi-mtd-mtd6-mtdblock6.device                                                           loaded active plugged   /sys/devices/platform/ahb/1e630000.spi/mtd/mtd6/mtdblock6                                              
+  sys-devices-platform-ahb-1e660000.ethernet-net-eth0.device                                                                loaded active plugged   /sys/devices/platform/ahb/1e660000.ethernet/net/eth0                                                   
+  sys-devices-platform-ahb-1e6a0000.usb\x2dvhub-1e6a0000.usb\x2dvhub:p1-udc-1e6a0000.usb\x2dvhub:p1.device                  loaded active plugged   /sys/devices/platform/ahb/1e6a0000.usb-vhub/1e6a0000.usb-vhub:p1/udc/1e6a0000.usb-vhub:p1              
+  sys-devices-platform-ahb-1e6a0000.usb\x2dvhub-1e6a0000.usb\x2dvhub:p2-udc-1e6a0000.usb\x2dvhub:p2.device                  loaded active plugged   /sys/devices/platform/ahb/1e6a0000.usb-vhub/1e6a0000.usb-vhub:p2/udc/1e6a0000.usb-vhub:p2              
+  sys-devices-platform-ahb-1e6a0000.usb\x2dvhub-1e6a0000.usb\x2dvhub:p3-udc-1e6a0000.usb\x2dvhub:p3.device                  loaded active plugged   /sys/devices/platform/ahb/1e6a0000.usb-vhub/1e6a0000.usb-vhub:p3/udc/1e6a0000.usb-vhub:p3              
+  sys-devices-platform-ahb-1e6a0000.usb\x2dvhub-1e6a0000.usb\x2dvhub:p4-udc-1e6a0000.usb\x2dvhub:p4.device                  loaded active plugged   /sys/devices/platform/ahb/1e6a0000.usb-vhub/1e6a0000.usb-vhub:p4/udc/1e6a0000.usb-vhub:p4              
+  sys-devices-platform-ahb-1e6a0000.usb\x2dvhub-1e6a0000.usb\x2dvhub:p5-udc-1e6a0000.usb\x2dvhub:p5.device                  loaded active plugged   /sys/devices/platform/ahb/1e6a0000.usb-vhub/1e6a0000.usb-vhub:p5/udc/1e6a0000.usb-vhub:p5              
+  sys-devices-platform-ahb-ahb:apb-1e783000.serial-tty-ttyS0.device                                                         loaded active plugged   /sys/devices/platform/ahb/ahb:apb/1e783000.serial/tty/ttyS0                                            
+  sys-devices-platform-ahb-ahb:apb-1e784000.serial-tty-ttyS4.device                                                         loaded active plugged   /sys/devices/platform/ahb/ahb:apb/1e784000.serial/tty/ttyS4                                            
+  sys-devices-platform-ahb-ahb:apb-1e787000.serial-tty-ttyS5.device                                                         loaded active plugged   /sys/devices/platform/ahb/ahb:apb/1e787000.serial/tty/ttyS5                                            
+  sys-devices-platform-ahb-ahb:apb-1e789000.lpc-1e789080.lpc\x2dhost-1e789080.lpc\x2dctrl-misc-aspeed\x2dlpc\x2dctrl.device loaded active plugged   /sys/devices/platform/ahb/ahb:apb/1e789000.lpc/1e789080.lpc-host/1e789080.lpc-ctrl/misc/aspeed-lpc-ctrl
+  sys-devices-platform-gpio\x2dkeys-input-input0-event0.device                                                              loaded active plugged   /sys/devices/platform/gpio-keys/input/input0/event0                                                    
+  sys-devices-platform-gpio\x2dkeys-input-input0.device                                                                     loaded active plugged   /sys/devices/platform/gpio-keys/input/input0                                                           
+  sys-devices-platform-leds-leds-fault.device                                                                               loaded active plugged   /sys/devices/platform/leds/leds/fault                                                                  
+  sys-devices-platform-leds-leds-identify.device                                                                            loaded active plugged   /sys/devices/platform/leds/leds/identify                                                               
+  sys-devices-platform-leds-leds-power.device                                                                               loaded active plugged   /sys/devices/platform/leds/leds/power                                                                  
+  sys-devices-platform-serial8250-tty-ttyS1.device                                                                          loaded active plugged   /sys/devices/platform/serial8250/tty/ttyS1                                                             
+  sys-devices-platform-serial8250-tty-ttyS2.device                                                                          loaded active plugged   /sys/devices/platform/serial8250/tty/ttyS2                                                             
+  sys-devices-platform-serial8250-tty-ttyS3.device                                                                          loaded active plugged   /sys/devices/platform/serial8250/tty/ttyS3                                                             
+  sys-devices-virtual-net-sit0.device                                                                                       loaded active plugged   /sys/devices/virtual/net/sit0                                                                          
+  sys-subsystem-net-devices-eth0.device                                                                                     loaded active plugged   /sys/subsystem/net/devices/eth0                                                                        
+  sys-subsystem-net-devices-sit0.device                                                                                     loaded active plugged   /sys/subsystem/net/devices/sit0                                                                        
+  -.mount                                                                                                                   loaded active mounted   Root Mount                                                                                             
+  run-initramfs-ro.mount                                                                                                    loaded active mounted   /run/initramfs/ro                                                                                      
+  run-initramfs-rw.mount                                                                                                    loaded active mounted   /run/initramfs/rw                                                                                      
+  sys-kernel-config.mount                                                                                                   loaded active mounted   Kernel Configuration File System                                                                       
+  sys-kernel-debug.mount                                                                                                    loaded active mounted   Kernel Debug File System                                                                               
+  sys-kernel-tracing.mount                                                                                                  loaded active mounted   Kernel Trace File System                                                                               
+  tmp.mount                                                                                                                 loaded active mounted   Temporary Directory (/tmp)                                                                             
+  var-volatile.mount                                                                                                        loaded active mounted   /var/volatile                                                                                          
+  systemd-ask-password-console.path                                                                                         loaded active waiting   Dispatch Password Requests to Console Directory Watch                                                  
+  systemd-ask-password-wall.path                                                                                            loaded active waiting   Forward Password Requests to Wall Directory Watch                                                      
+  init.scope                                                                                                                loaded active running   System and Service Manager                                                                             
+  avahi-daemon.service                                                                                                      loaded active running   Avahi mDNS/DNS-SD Stack                                                                                
+  bmcweb.service                                                                                                            loaded active running   Start bmcweb server                                                                                    
+  clear-once.service                                                                                                        loaded active exited    Clear one time boot overrides                                                                          
+  dbus-broker.service                                                                                                       loaded active running   D-Bus System Message Bus                                                                               
+  dropbearkey.service                                                                                                       loaded active exited    SSH Key Generation                                                                                     
+  mapper-wait@-org-openbmc-control-power0.service                                                                           loaded active exited    Wait for /org/openbmc/control/power0                                                                   
+  mapper-wait@-xyz-openbmc_project-control-host0-auto_reboot.service                                                        loaded active exited    Wait for /xyz/openbmc_project/control/host0/auto_reboot                                                
+  mapper-wait@-xyz-openbmc_project-control-host0-boot-one_time.service                                                      loaded active exited    Wait for /xyz/openbmc_project/control/host0/boot/one_time                                              
+  mapper-wait@-xyz-openbmc_project-control-host0-boot.service                                                               loaded active exited    Wait for /xyz/openbmc_project/control/host0/boot                                                       
+  mapper-wait@-xyz-openbmc_project-control-host0-power_restore_policy.service                                               loaded active exited    Wait for /xyz/openbmc_project/control/host0/power_restore_policy                                       
+  mapper-wait@-xyz-openbmc_project-control-host0-restriction_mode.service                                                   loaded active exited    Wait for /xyz/openbmc_project/control/host0/restriction_mode                                           
+  mapper-wait@-xyz-openbmc_project-inventory.service                                                                        loaded active exited    Wait for /xyz/openbmc_project/inventory                                                                
+  mapper-wait@-xyz-openbmc_project-led-groups-bmc_booted.service                                                            loaded active exited    Wait for /xyz/openbmc_project/led/groups/bmc_booted                                                    
+  mapper-wait@-xyz-openbmc_project-led-groups.service                                                                       loaded active exited    Wait for /xyz/openbmc_project/led/groups                                                               
+  mapper-wait@-xyz-openbmc_project-state-chassis0.service                                                                   loaded active exited    Wait for /xyz/openbmc_project/state/chassis0                                                           
+  mapper-wait@-xyz-openbmc_project-state-host0.service                                                                      loaded active exited    Wait for /xyz/openbmc_project/state/host0                                                              
+  mapper-wait@-xyz-openbmc_project-time-sync_method.service                                                                 loaded active exited    Wait for /xyz/openbmc_project/time/sync_method                                                         
+  mboxd.service                                                                                                             loaded active running   Phosphor MBOX Daemon                                                                                   
+  nscd.service                                                                                                              loaded active running   Name Service Cache Daemon                                                                              
+  nslcd.service                                                                                                             loaded active running   LDAP daemon                                                                                            
+  obmc-console@ttyVUART0.service                                                                                            loaded active running   ttyVUART0 Console Server                                                                               
+  obmc-dump-monitor.service                                                                                                 loaded active running   Phosphor Dump core monitor.                                                                            
+  obmc-fru-fault-monitor.service                                                                                            loaded active running   FRU Fault monitor service                                                                              
+  obmc-led-group-start@bmc_booted.service                                                                                   loaded active exited    Assert bmc_booted LED                                                                                  
+  org.open_power.OCC.Control.service                                                                                        loaded active running   OpenPOWER OCC controller                                                                               
+  org.open_power.Software.Host.Updater.service                                                                              loaded active running   OpenPower Software Update Manager                                                                      
+  org.openbmc.control.Power@0.service                                                                                       loaded active running   Phosphor Power0 Control                                                                                
+  org.openbmc.HostIpmi.service                                                                                              loaded active running   Phosphor IPMI BT DBus Bridge                                                                           
+  phosphor-button-handler.service                                                                                           loaded active running   Phosphor Button Handler                                                                                
+  phosphor-certificate-manager@authority.service                                                                            loaded active running   Phosphor certificate manager for authority                                                             
+  phosphor-certificate-manager@bmcweb.service                                                                               loaded active running   Phosphor certificate manager for bmcweb                                                                
+  phosphor-certificate-manager@nslcd.service                                                                                loaded active running   Phosphor certificate manager for nslcd                                                                 
+  phosphor-dbus-monitor.service                                                                                             loaded active running   Phosphor DBus Monitor                                                                                  
+  phosphor-discover-system-state@0.service                                                                                  loaded active exited    Reboot If Enabled                                                                                      
+  phosphor-gpio-monitor@id_button.service                                                                                   loaded active running   Phosphor GPIO id_button monitor                                                                        
+  phosphor-health-monitor.service                                                                                           loaded active running   BMC health monitoring                                                                                  
+  phosphor-ipmi-host.service                                                                                                loaded active running   Phosphor Inband IPMI                                                                                   
+  phosphor-ipmi-net@eth0.service                                                                                            loaded active running   Network IPMI daemon                                                                                    
+  phosphor-systemd-target-monitor.service                                                                                   loaded active running   phosphor systemd target monitor                                                                        
+  rngd.service                                                                                                              loaded active running   Hardware RNG Entropy Gatherer Daemon                                                                   
+  rsyslog.service                                                                                                           loaded active running   System Logging Service                                                                                 
+  serial-getty@ttyS4.service                                                                                                loaded active running   Serial Getty on ttyS4                                                                                  
+  slpd-lite.service                                                                                                         loaded active running   Lightweight SLP Server                                                                                 
+  start-ipkvm.service                                                                                                       loaded active running   OpenBMC ipKVM daemon                                                                                   
+  systemd-journal-flush.service                                                                                             loaded active exited    Flush Journal to Persistent Storage                                                                    
+  systemd-journald.service                                                                                                  loaded active running   Journal Service                                                                                        
+  systemd-networkd-wait-online.service                                                                                      loaded active exited    Wait for Network to be Configured                                                                      
+  systemd-networkd.service                                                                                                  loaded active running   Network Service                                                                                        
+  systemd-random-seed.service                                                                                               loaded active exited    Load/Save Random Seed                                                                                  
+  systemd-remount-fs.service                                                                                                loaded active exited    Remount Root and Kernel File Systems                                                                   
+  systemd-resolved.service                                                                                                  loaded active running   Network Name Resolution                                                                                
+  systemd-sysctl.service                                                                                                    loaded active exited    Apply Kernel Variables                                                                                 
+  systemd-timesyncd.service                                                                                                 loaded active running   Network Time Synchronization                                                                           
+  systemd-tmpfiles-setup-dev.service                                                                                        loaded active exited    Create Static Device Nodes in /dev                                                                     
+  systemd-tmpfiles-setup.service                                                                                            loaded active exited    Create Volatile Files and Directories                                                                  
+  systemd-udev-trigger.service                                                                                              loaded active exited    Coldplug All udev Devices                                                                              
+  systemd-udevd.service                                                                                                     loaded active running   Rule-based Manager for Device Events and Files                                                         
+  systemd-user-sessions.service                                                                                             loaded active exited    Permit User Sessions                                                                                   
+  uart-render-controller.service                                                                                            loaded active running   UART render controller                                                                                 
+  xyz.openbmc_project.Chassis.Buttons.service                                                                               loaded active running   Phosphor Buttons                                                                                       
+  xyz.openbmc_project.Dump.Manager.service                                                                                  loaded active running   Phosphor Dump Manager                                                                                  
+  xyz.openbmc_project.Hwmon@-ahb-apb-pwm\x2dtacho\x2dcontroller\x401e786000.service                                         loaded active running   Phosphor Hwmon Poller                                                                                  
+  xyz.openbmc_project.Hwmon@-iio\x2dhwmon\x2dbattery.service                                                                loaded active running   Phosphor Hwmon Poller                                                                                  
+  xyz.openbmc_project.Inventory.Manager.service                                                                             loaded active running   Phosphor Inventory Manager                                                                             
+  xyz.openbmc_project.Ldap.Config.service                                                                                   loaded active running   Phosphor Ldap config updater                                                                           
+  xyz.openbmc_project.LDAP.PrivilegeMapper.service                                                                          loaded active running   Phosphor LDAP privilege mapper                                                                         
+  xyz.openbmc_project.led.controller@sys-class-leds-fault.service                                                           loaded active running   Phosphor sysfs LED controller                                                                          
+  xyz.openbmc_project.led.controller@sys-class-leds-identify.service                                                        loaded active running   Phosphor sysfs LED controller                                                                          
+  xyz.openbmc_project.led.controller@sys-class-leds-power.service                                                           loaded active running   Phosphor sysfs LED controller                                                                          
+  xyz.openbmc_project.LED.GroupManager.service                                                                              loaded active running   Phosphor LED Group Management Daemon                                                                   
+  xyz.openbmc_project.Logging.service                                                                                       loaded active running   Phosphor Log Manager                                                                                   
+  xyz.openbmc_project.Network.service                                                                                       loaded active running   Phosphor Network Manager                                                                               
+  xyz.openbmc_project.Network.SNMP.service                                                                                  loaded active running   Phosphor SNMP conf Manager                                                                             
+  xyz.openbmc_project.ObjectMapper.service                                                                                  loaded active running   Phosphor DBus Service Discovery Manager                                                                
+  xyz.openbmc_project.Settings.service                                                                                      loaded active running   Phosphor Settings Daemon                                                                               
+  xyz.openbmc_project.Software.BMC.Updater.service                                                                          loaded active running   OpenBMC Software Update Manager                                                                        
+  xyz.openbmc_project.Software.Download.service                                                                             loaded active running   Phosphor Download Manager                                                                              
+  xyz.openbmc_project.Software.Version.service                                                                              loaded active running   Phosphor Version Software Manager                                                                      
+  xyz.openbmc_project.State.BMC.service                                                                                     loaded active running   Phosphor BMC State Manager                                                                             
+  xyz.openbmc_project.State.Chassis.service                                                                                 loaded active running   Phosphor Chassis State Manager                                                                         
+  xyz.openbmc_project.State.Host.service                                                                                    loaded active running   Phosphor Host State Manager                                                                            
+  xyz.openbmc_project.Syslog.Config.service                                                                                 loaded active running   Rsyslog config updater                                                                                 
+  xyz.openbmc_project.Telemetry.service                                                                                     loaded active running   Telemetry                                                                                              
+  xyz.openbmc_project.Time.Manager.service                                                                                  loaded active running   Phosphor Time Manager daemon                                                                           
+  xyz.openbmc_project.User.Manager.service                                                                                  loaded active running   Phosphor User Manager                                                                                  
+  -.slice                                                                                                                   loaded active active    Root Slice                                                                                             
+  system-dropbear.slice                                                                                                     loaded active active    system-dropbear.slice                                                                                  
+  system-getty.slice                                                                                                        loaded active active    system-getty.slice                                                                                     
+  system-mapper\x2dwait.slice                                                                                               loaded active active    system-mapper\x2dwait.slice                                                                            
+  system-modprobe.slice                                                                                                     loaded active active    system-modprobe.slice                                                                                  
+  system-obmc\x2dconsole.slice                                                                                              loaded active active    system-obmc\x2dconsole.slice                                                                           
+  system-obmc\x2dled\x2dgroup\x2dstart.slice                                                                                loaded active active    system-obmc\x2dled\x2dgroup\x2dstart.slice                                                             
+  system-op\x2dreset\x2dchassis\x2don.slice                                                                                 loaded active active    system-op\x2dreset\x2dchassis\x2don.slice                                                              
+  system-op\x2dreset\x2dchassis\x2drunning.slice                                                                            loaded active active    system-op\x2dreset\x2dchassis\x2drunning.slice                                                         
+  system-org.openbmc.control.Power.slice                                                                                    loaded active active    system-org.openbmc.control.Power.slice                                                                 
+  system-phosphor\x2dcertificate\x2dmanager.slice                                                                           loaded active active    system-phosphor\x2dcertificate\x2dmanager.slice                                                        
+  system-phosphor\x2ddiscover\x2dsystem\x2dstate.slice                                                                      loaded active active    system-phosphor\x2ddiscover\x2dsystem\x2dstate.slice                                                   
+  system-phosphor\x2dgpio\x2dmonitor.slice                                                                                  loaded active active    system-phosphor\x2dgpio\x2dmonitor.slice                                                               
+  system-phosphor\x2dipmi\x2dnet.slice                                                                                      loaded active active    system-phosphor\x2dipmi\x2dnet.slice                                                                   
+  system-phosphor\x2dreset\x2dhost\x2dcheck.slice                                                                           loaded active active    system-phosphor\x2dreset\x2dhost\x2dcheck.slice                                                        
+  system-phosphor\x2dreset\x2dhost\x2drunning.slice                                                                         loaded active active    system-phosphor\x2dreset\x2dhost\x2drunning.slice                                                      
+  system-phosphor\x2dreset\x2dsensor\x2dstates.slice                                                                        loaded active active    system-phosphor\x2dreset\x2dsensor\x2dstates.slice                                                     
+  system-serial\x2dgetty.slice                                                                                              loaded active active    system-serial\x2dgetty.slice                                                                           
+  system-systemd\x2dcoredump.slice                                                                                          loaded active active    system-systemd\x2dcoredump.slice                                                                       
+  system-xyz.openbmc_project.Hwmon.slice                                                                                    loaded active active    system-xyz.openbmc_project.Hwmon.slice                                                                 
+  system-xyz.openbmc_project.led.controller.slice                                                                           loaded active active    system-xyz.openbmc_project.led.controller.slice                                                        
+  system.slice                                                                                                              loaded active active    System Slice                                                                                           
+  avahi-daemon.socket                                                                                                       loaded active running   Avahi mDNS/DNS-SD Stack Activation Socket                                                              
+  bmcweb.socket                                                                                                             loaded active running   BMC Webserver socket                                                                                   
+  dbus.socket                                                                                                               loaded active running   D-Bus System Message Bus Socket                                                                        
+  dropbear.socket                                                                                                           loaded active listening dropbear.socket                                                                                        
+  obmc-console-ssh.socket                                                                                                   loaded active listening Phosphor Host Console SSH Per-Connection socket                                                        
+  phosphor-ipmi-net@eth0.socket                                                                                             loaded active running   phosphor-ipmi-net@eth0.socket                                                                          
+  syslog.socket                                                                                                             loaded active running   Syslog Socket                                                                                          
+  systemd-coredump.socket                                                                                                   loaded active listening Process Core Dump Socket                                                                               
+  systemd-initctl.socket                                                                                                    loaded active listening initctl Compatibility Named Pipe                                                                       
+  systemd-journald-dev-log.socket                                                                                           loaded active running   Journal Socket (/dev/log)                                                                              
+  systemd-journald.socket                                                                                                   loaded active running   Journal Socket                                                                                         
+  systemd-networkd.socket                                                                                                   loaded active running   Network Service Netlink Socket                                                                         
+  systemd-udevd-control.socket                                                                                              loaded active running   udev Control Socket                                                                                    
+  systemd-udevd-kernel.socket                                                                                               loaded active running   udev Kernel Socket                                                                                     
+  basic.target                                                                                                              loaded active active    Basic System                                                                                           
+  getty.target                                                                                                              loaded active active    Login Prompts                                                                                          
+  local-fs-pre.target                                                                                                       loaded active active    Local File Systems (Pre)                                                                               
+  local-fs.target                                                                                                           loaded active active    Local File Systems                                                                                     
+  multi-user.target                                                                                                         loaded active active    Multi-User System                                                                                      
+  network-online.target                                                                                                     loaded active active    Network is Online                                                                                      
+  network.target                                                                                                            loaded active active    Network                                                                                                
+  nss-lookup.target                                                                                                         loaded active active    Host and Network Name Lookups                                                                          
+  obmc-chassis-powerreset@0.target                                                                                          loaded active active    Chassis0 (Reset Check)                                                                                 
+  obmc-host-reset-running@0.target                                                                                          loaded active active    Host0 running after reset                                                                              
+  obmc-host-reset@0.target                                                                                                  loaded active active    Host0 (Reset Check)                                                                                    
+  obmc-mapper.target                                                                                                        loaded active active    Phosphor Object Mapper                                                                                 
+  obmc-power-reset-on@0.target                                                                                              loaded active active    Chassis0 power on after reset                                                                          
+  paths.target                                                                                                              loaded active active    Paths                                                                                                  
+  remote-fs.target                                                                                                          loaded active active    Remote File Systems                                                                                    
+  slices.target                                                                                                             loaded active active    Slices                                                                                                 
+  sockets.target                                                                                                            loaded active active    Sockets                                                                                                
+  swap.target                                                                                                               loaded active active    Swap                                                                                                   
+  sysinit.target                                                                                                            loaded active active    System Initialization                                                                                  
+  time-set.target                                                                                                           loaded active active    System Time Set                                                                                        
+  time-sync.target                                                                                                          loaded active active    System Time Synchronized                                                                               
+  timers.target                                                                                                             loaded active active    Timers                                                                                                 
+  usb-gadget.target                                                                                                         loaded active active    Hardware activated USB gadget                                                                          
+  logrotate.timer                                                                                                           loaded active waiting   Daily rotation of log files                                                                            
+  systemd-tmpfiles-clean.timer                                                                                              loaded active waiting   Daily Cleanup of Temporary Directories
+
+
+root@romulus:~# systemctl list-units --all --state=inactive 
+
+  UNIT                                                                                                                      LOAD      ACTIVE   SUB  DESCRIPTION                                                                                                
+  dev-hugepages.mount                                                                                                       loaded    inactive dead Huge Pages File System                                                                                     
+  dev-mqueue.mount                                                                                                          loaded    inactive dead POSIX Message Queue File System                                                                            
+* home.mount                                                                                                                not-found inactive dead home.mount                                                                                                 
+  sys-fs-fuse-connections.mount                                                                                             loaded    inactive dead FUSE Control File System                                                                                   
+  avsbus-disable@0.service                                                                                                  loaded    inactive dead Disable the AVS bus on the VRMs                                                                            
+  avsbus-enable@0.service                                                                                                   loaded    inactive dead Enable the AVS bus on VRMs                                                                                 
+  cfam_override@0.service                                                                                                   loaded    inactive dead Applies user CFAM register overrides from file                                                             
+* connman.service                                                                                                           not-found inactive dead connman.service                                                                                            
+* dropbear.service                                                                                                          not-found inactive dead dropbear.service                                                                                           
+  emergency.service                                                                                                         loaded    inactive dead Emergency Shell                                                                                            
+  fsi-disable.service                                                                                                       loaded    inactive dead Disable FSI                                                                                                
+  fsi-enable.service                                                                                                        loaded    inactive dead Enable FSI                                                                                                 
+  fsi-scan@0.service                                                                                                        loaded    inactive dead Scan FSI devices                                                                                           
+  getty@tty1.service                                                                                                        loaded    inactive dead Getty on tty1                                                                                              
+  kmod-static-nodes.service                                                                                                 loaded    inactive dead Create list of static device nodes for the current kernel                                                  
+  logrotate.service                                                                                                         loaded    inactive dead Rotate log files                                                                                           
+  mapper-subtree-remove@-xyz-openbmc\x5fproject-logging\x3Axyz.openbmc_project.Logging.ErrorBlocksTransition.service        loaded    inactive dead mapper subtree-remove /xyz/openbmc_project/logging:xyz.openbmc_project.Logging.ErrorBlocksTransition       
+  mapper-subtree-remove@-xyz-openbmc\x5fproject-software\x3Axyz.openbmc_project.Software.ActivationBlocksTransition.service loaded    inactive dead mapper subtree-remove /xyz/openbmc_project/software:xyz.openbmc_project.Software.ActivationBlocksTransition
+  mapper-wait@-org-openbmc-mboxd.service                                                                                    loaded    inactive dead Wait for /org/openbmc/mboxd                                                                                
+  mapper-wait@-xyz-openbmc_project-control-host0-auto_reboot-one_time.service                                               loaded    inactive dead Wait for /xyz/openbmc_project/control/host0/auto_reboot/one_time                                           
+  mapper-wait@-xyz-openbmc_project-led-groups-power_on.service                                                              loaded    inactive dead Wait for /xyz/openbmc_project/led/groups/power_on                                                          
+  mapper-wait@-xyz-openbmc_project-state-bmc.service                                                                        loaded    inactive dead Wait for /xyz/openbmc_project/state/bmc                                                                    
+  mapper-wait@-xyz-openbmc_project-state-chassis.service                                                                    loaded    inactive dead Wait for /xyz/openbmc_project/state/chassis                                                                
+  mapper-wait@-xyz-openbmc_project-state-host.service                                                                       loaded    inactive dead Wait for /xyz/openbmc_project/state/host                                                                   
+  mapper-wait@-xyz-openbmc_project-watchdog-host0.service                                                                   loaded    inactive dead Wait for /xyz/openbmc_project/watchdog/host0                                                               
+  mboxd-reload@0.service                                                                                                    loaded    inactive dead Reload mboxd during power on                                                                               
+  modprobe@configfs.service                                                                                                 loaded    inactive dead Load Kernel Module configfs                                                                                
+  modprobe@fuse.service                                                                                                     loaded    inactive dead Load Kernel Module fuse                                                                                    
+  obmc-console@ttyS0.service                                                                                                loaded    inactive dead ttyS0 Console Server                                                                                       
+  obmc-enable-host-watchdog@0.service                                                                                       loaded    inactive dead Start Watchdog0                                                                                            
+  obmc-led-group-start@power_on.service                                                                                     loaded    inactive dead Assert power_on LED                                                                                        
+  obmc-led-group-stop@bmc_booted.service                                                                                    loaded    inactive dead Assert bmc_booted LED                                                                                      
+  obmc-led-group-stop@power_on.service                                                                                      loaded    inactive dead Assert power_on LED                                                                                        
+  op-cfam-reset.service                                                                                                     loaded    inactive dead CFAM reset                                                                                                 
+  op-continue-mpreboot@0.service                                                                                            loaded    inactive dead Continue mp reboot on host0                                                                                
+  op-occ-disable@0.service                                                                                                  loaded    inactive dead OpenPOWER OCC Active Disable                                                                               
+  op-occ-enable@0.service                                                                                                   loaded    inactive dead OpenPOWER OCC Active Enable for host 0                                                                     
+  op-power-start@0.service                                                                                                  loaded    inactive dead Start Power0                                                                                               
+  op-power-stop@0.service                                                                                                   loaded    inactive dead Stop Power0                                                                                                
+  op-powered-off@0.service                                                                                                  loaded    inactive dead Power is off to chassis0                                                                                   
+  op-reset-chassis-on@0.service                                                                                             loaded    inactive dead Start chassis0 on after BMC reset                                                                          
+  op-reset-chassis-running@0.service                                                                                        loaded    inactive dead Check Chassis0 pgood and create a file to indicate it                                                      
+  op-stop-instructions@0.service                                                                                            loaded    inactive dead Stop instructions for host0                                                                                
+* op-vpd-parser.service                                                                                                     not-found inactive dead op-vpd-parser.service                                                                                      
+  op-wait-power-off@0.service                                                                                               loaded    inactive dead Wait for Power0 to turn off                                                                                
+  op-wait-power-on@0.service                                                                                                loaded    inactive dead Wait for Power0 to turn on                                                                                 
+  openpower-debug-collector-checkstop@0.service                                                                             loaded    inactive dead OpenPOWER debug data collector for host checkstop                                                          
+  phosphor-clear-one-time@0.service                                                                                         loaded    inactive dead Reset one-time properties on chassis off                                                                   
+  phosphor-fan-control-init@0.service                                                                                       loaded    inactive dead Phosphor Fan Control Initialization                                                                        
+  phosphor-fan-monitor-init@0.service                                                                                       loaded    inactive dead Phosphor Fan Monitor Initialization                                                                        
+  phosphor-fan-presence-tach@0.service                                                                                      loaded    inactive dead Phosphor Fan Presence Tach Daemon                                                                          
+  phosphor-gpio-monitor@checkstop.service                                                                                   loaded    inactive dead Phosphor GPIO checkstop monitor                                                                            
+  phosphor-reset-host-check@0.service                                                                                       loaded    inactive dead Check Host0 status on BMC reset                                                                            
+  phosphor-reset-host-running@0.service                                                                                     loaded    inactive dead Start host0 running after BMC reset                                                                        
+  phosphor-reset-sensor-states@0.service                                                                                    loaded    inactive dead Reset host sensors                                                                                         
+  phosphor-set-host-transition-to-off@0.service                                                                             loaded    inactive dead Set host state to transition to off                                                                        
+  phosphor-set-host-transition-to-running@0.service                                                                         loaded    inactive dead Set host state to transition to running                                                                    
+  phosphor-watchdog@poweron.service                                                                                         loaded    inactive dead Phosphor poweron watchdog                                                                                  
+* plymouth-quit-wait.service                                                                                                not-found inactive dead plymouth-quit-wait.service                                                                                 
+* plymouth-start.service                                                                                                    not-found inactive dead plymouth-start.service                                                                                     
+  rc-local.service                                                                                                          loaded    inactive dead /etc/rc.local Compatibility                                                                                
+  rescue.service                                                                                                            loaded    inactive dead Rescue Shell                                                                                               
+  start_host@0.service                                                                                                      loaded    inactive dead Start host0 SBE                                                                                            
+  systemd-ask-password-console.service                                                                                      loaded    inactive dead Dispatch Password Requests to Console                                                                      
+  systemd-ask-password-wall.service                                                                                         loaded    inactive dead Forward Password Requests to Wall                                                                          
+  systemd-fsck-root.service                                                                                                 loaded    inactive dead File System Check on Root Device                                                                           
+  systemd-hwdb-update.service                                                                                               loaded    inactive dead Rebuild Hardware Database                                                                                  
+  systemd-initctl.service                                                                                                   loaded    inactive dead initctl Compatibility Daemon                                                                               
+  systemd-journal-catalog-update.service                                                                                    loaded    inactive dead Rebuild Journal Catalog                                                                                    
+  systemd-machine-id-commit.service                                                                                         loaded    inactive dead Commit a transient machine-id on disk                                                                      
+  systemd-modules-load.service                                                                                              loaded    inactive dead Load Kernel Modules                                                                                        
+  systemd-pstore.service                                                                                                    loaded    inactive dead Platform Persistent Storage Archival                                                                       
+  systemd-sysusers.service                                                                                                  loaded    inactive dead Create System Users                                                                                        
+  systemd-tmpfiles-clean.service                                                                                            loaded    inactive dead Cleanup of Temporary Directories                                                                           
+  systemd-udev-settle.service                                                                                               loaded    inactive dead Wait for udev To Complete Device Initialization                                                            
+  systemd-update-done.service                                                                                               loaded    inactive dead Update is Completed                                                                                        
+* systemd-vconsole-setup.service                                                                                            not-found inactive dead systemd-vconsole-setup.service                                                                             
+  var-volatile-cache.service                                                                                                loaded    inactive dead Bind mount volatile /var/cache                                                                             
+  var-volatile-lib.service                                                                                                  loaded    inactive dead Bind mount volatile /var/lib                                                                               
+  var-volatile-spool.service                                                                                                loaded    inactive dead Bind mount volatile /var/spool                                                                             
+  var-volatile-srv.service                                                                                                  loaded    inactive dead Bind mount volatile /srv                                                                                   
+  vrm-control@0.service                                                                                                     loaded    inactive dead Apply voltage overrides to VRMs                                                                            
+  xyz.openbmc_project.Control.Host.NMI.service                                                                              loaded    inactive dead Start the Open Power Host Control NMI service                                                              
+* xyz.openbmc_project.Software.Sync.service                                                                                 not-found inactive dead xyz.openbmc_project.Software.Sync.service                                                                  
+  system-avsbus\x2ddisable.slice                                                                                            loaded    inactive dead system-avsbus\x2ddisable.slice                                                                             
+  system-avsbus\x2denable.slice                                                                                             loaded    inactive dead system-avsbus\x2denable.slice                                                                              
+  system-cfam_override.slice                                                                                                loaded    inactive dead system-cfam_override.slice                                                                                 
+  system-fsi\x2dscan.slice                                                                                                  loaded    inactive dead system-fsi\x2dscan.slice                                                                                   
+  system-mapper\x2dsubtree\x2dremove.slice                                                                                  loaded    inactive dead system-mapper\x2dsubtree\x2dremove.slice                                                                   
+  system-mboxd\x2dreload.slice                                                                                              loaded    inactive dead system-mboxd\x2dreload.slice                                                                               
+  system-obmc\x2denable\x2dhost\x2dwatchdog.slice                                                                           loaded    inactive dead system-obmc\x2denable\x2dhost\x2dwatchdog.slice                                                            
+  system-obmc\x2dled\x2dgroup\x2dstop.slice                                                                                 loaded    inactive dead system-obmc\x2dled\x2dgroup\x2dstop.slice                                                                  
+  system-op\x2dcontinue\x2dmpreboot.slice                                                                                   loaded    inactive dead system-op\x2dcontinue\x2dmpreboot.slice                                                                    
+  system-op\x2docc\x2ddisable.slice                                                                                         loaded    inactive dead system-op\x2docc\x2ddisable.slice                                                                          
+  system-op\x2docc\x2denable.slice                                                                                          loaded    inactive dead system-op\x2docc\x2denable.slice                                                                           
+  system-op\x2dpower\x2dstart.slice                                                                                         loaded    inactive dead system-op\x2dpower\x2dstart.slice                                                                          
+  system-op\x2dpower\x2dstop.slice                                                                                          loaded    inactive dead system-op\x2dpower\x2dstop.slice                                                                           
+  system-op\x2dpowered\x2doff.slice                                                                                         loaded    inactive dead system-op\x2dpowered\x2doff.slice                                                                          
+  system-op\x2dstop\x2dinstructions.slice                                                                                   loaded    inactive dead system-op\x2dstop\x2dinstructions.slice                                                                    
+  system-op\x2dwait\x2dpower\x2doff.slice                                                                                   loaded    inactive dead system-op\x2dwait\x2dpower\x2doff.slice                                                                    
+  system-op\x2dwait\x2dpower\x2don.slice                                                                                    loaded    inactive dead system-op\x2dwait\x2dpower\x2don.slice                                                                     
+  system-openpower\x2ddebug\x2dcollector\x2dcheckstop.slice                                                                 loaded    inactive dead system-openpower\x2ddebug\x2dcollector\x2dcheckstop.slice                                                  
+  system-phosphor\x2dclear\x2done\x2dtime.slice                                                                             loaded    inactive dead system-phosphor\x2dclear\x2done\x2dtime.slice                                                              
+  system-phosphor\x2dfan\x2dcontrol\x2dinit.slice                                                                           loaded    inactive dead system-phosphor\x2dfan\x2dcontrol\x2dinit.slice                                                            
+  system-phosphor\x2dfan\x2dmonitor\x2dinit.slice                                                                           loaded    inactive dead system-phosphor\x2dfan\x2dmonitor\x2dinit.slice                                                            
+  system-phosphor\x2dfan\x2dpresence\x2dtach.slice                                                                          loaded    inactive dead system-phosphor\x2dfan\x2dpresence\x2dtach.slice                                                           
+  system-phosphor\x2dset\x2dhost\x2dtransition\x2dto\x2doff.slice                                                           loaded    inactive dead system-phosphor\x2dset\x2dhost\x2dtransition\x2dto\x2doff.slice                                            
+  system-phosphor\x2dset\x2dhost\x2dtransition\x2dto\x2drunning.slice                                                       loaded    inactive dead system-phosphor\x2dset\x2dhost\x2dtransition\x2dto\x2drunning.slice                                        
+  system-phosphor\x2dwatchdog.slice                                                                                         loaded    inactive dead system-phosphor\x2dwatchdog.slice                                                                          
+  system-start_host.slice                                                                                                   loaded    inactive dead system-start_host.slice                                                                                    
+  system-vrm\x2dcontrol.slice                                                                                               loaded    inactive dead system-vrm\x2dcontrol.slice                                                                                
+  systemd-journald-audit.socket                                                                                             loaded    inactive dead Journal Audit Socket                                                                                       
+  blockdev@dev-mtdblock4.target                                                                                             loaded    inactive dead Block Device Preparation for /dev/mtdblock4                                                                
+  blockdev@dev-mtdblock5.target                                                                                             loaded    inactive dead Block Device Preparation for /dev/mtdblock5                                                                
+  blockdev@dev-root.target                                                                                                  loaded    inactive dead Block Device Preparation for /dev/root                                                                     
+* cryptsetup.target                                                                                                         not-found inactive dead cryptsetup.target                                                                                          
+  emergency.target                                                                                                          loaded    inactive dead Emergency Mode                                                                                             
+  first-boot-complete.target                                                                                                loaded    inactive dead First Boot Complete                                                                                        
+  getty-pre.target                                                                                                          loaded    inactive dead Login Prompts (Pre)                                                                                        
+  network-pre.target                                                                                                        loaded    inactive dead Network (Pre)                                                                                              
+  nss-user-lookup.target                                                                                                    loaded    inactive dead User and Group Name Lookups                                                                                
+  obmc-chassis-powered-off@0.target                                                                                         loaded    inactive dead Chassis0 (Powered Off)                                                                                     
+  obmc-chassis-poweroff@0.target                                                                                            loaded    inactive dead Chassis0 (Power Off)                                                                                       
+  obmc-chassis-poweron@0.target                                                                                             loaded    inactive dead Chassis0 (Power On)                                                                                        
+  obmc-fan-control.target                                                                                                   loaded    inactive dead Fan Control                                                                                                
+  obmc-host-crash@0.target                                                                                                  loaded    inactive dead Host instance 0 crashed                                                                                    
+  obmc-host-quiesce@0.target                                                                                                loaded    inactive dead Quiesce Target                                                                                             
+  obmc-host-start-pre@0.target                                                                                              loaded    inactive dead Start Host0 (Pre)                                                                                          
+  obmc-host-started@0.target                                                                                                loaded    inactive dead Host0 (Started)                                                                                            
+  obmc-host-starting@0.target                                                                                               loaded    inactive dead Host0 (Starting)                                                                                           
+  obmc-host-startmin@0.target                                                                                               loaded    inactive dead Start Host0 Minimum                                                                                        
+  obmc-host-stop-pre@0.target                                                                                               loaded    inactive dead Stop Host0 (Pre)                                                                                           
+  obmc-host-stop@0.target                                                                                                   loaded    inactive dead Stop Host0                                                                                                 
+  obmc-host-stopped@0.target                                                                                                loaded    inactive dead Host0 (Stopped)                                                                                            
+  obmc-host-stopping@0.target                                                                                               loaded    inactive dead Host0 (Stopping)                                                                                           
+  obmc-power-off@0.target                                                                                                   loaded    inactive dead Power0 (Off)                                                                                               
+  obmc-power-on@0.target                                                                                                    loaded    inactive dead Power0 (On)                                                                                                
+  obmc-power-start-pre@0.target                                                                                             loaded    inactive dead Power0 On (Pre)                                                                                            
+  obmc-power-start@0.target                                                                                                 loaded    inactive dead Power0 On (Starting)                                                                                       
+  obmc-power-stop-pre@0.target                                                                                              loaded    inactive dead Power0 Off (Pre)                                                                                           
+  obmc-power-stop@0.target                                                                                                  loaded    inactive dead Power0 Off (Starting)                                                                                      
+  remote-fs-pre.target                                                                                                      loaded    inactive dead Remote File Systems (Pre)                                                                                  
+  rescue.target                                                                                                             loaded    inactive dead Rescue Mode                                                                                                
+  shutdown.target                                                                                                           loaded    inactive dead Shutdown                                                                                                   
+* syslog.target                                                                                                             not-found inactive dead syslog.target                                                                                              
+  umount.target   
+
+
+root@romulus:~# systemctl cat obmc-fan-control.target 
+# /lib/systemd/system/obmc-fan-control.target
+[Unit]
+Description=Fan Control
+RefuseManualStart=yes
+RefuseManualStop=yes
+
+root@romulus:~# systemctl list-dependencies obmc-fan-control.target
+obmc-fan-control.target
+
+romulus:~# systemctl list-dependencies xyz.openbmc_project.Network.SNMP.ser
+xyz.openbmc_project.Network.SNMP.service
+* |-dbus.socket
+* |-system.slice
+* `-sysinit.target
+*   |-dev-hugepages.mount
+*   |-dev-mqueue.mount
+*   |-kmod-static-nodes.service
+*   |-rngd.service
+*   |-sys-fs-fuse-connections.mount
+*   |-sys-kernel-config.mount
+*   |-sys-kernel-debug.mount
+*   |-sys-kernel-tracing.mount
+*   |-systemd-ask-password-console.path
+*   |-systemd-hwdb-update.service
+*   |-systemd-journal-catalog-update.service
+*   |-systemd-journal-flush.service
+*   |-systemd-journald.service
+*   |-systemd-machine-id-commit.service
+*   |-systemd-modules-load.service
+*   |-systemd-pstore.service
+*   |-systemd-random-seed.service
+*   |-systemd-sysctl.service
+*   |-systemd-sysusers.service
+*   |-systemd-timesyncd.service
+*   |-systemd-tmpfiles-setup-dev.service
+*   |-systemd-tmpfiles-setup.service
+*   |-systemd-udev-trigger.service
+*   |-systemd-udevd.service
+*   |-systemd-update-done.service
+*   |-local-fs.target
+*   | |--.mount
+*   | |-systemd-fsck-root.service
+*   | |-systemd-remount-fs.service
+*   | |-tmp.mount
+*   | |-var-volatile-cache.service
+*   | |-var-volatile-lib.service
+*   | |-var-volatile-spool.service
+*   | |-var-volatile-srv.service
+*   | `-var-volatile.mount
+*   `-swap.target
+
+
+                                                                                                          loaded    inactive dead Unmount All Filesystems 

@@ -1,0 +1,278 @@
+BP0c00
+
+U-Boot SPL 2019.04.sdk-ASpeed_SDK_6_0-23-g9f3126e54 (Mar 08 2021 - 08:11:36 +0000)
+Trying to boot from RAM
+
+
+U-Boot 2019.04.sdk-ASpeed_SDK_6_0-23-g9f3126e54 (Mar 08 2021 - 08:11:36 +0000)
+
+Hello SOC: AST2620-A2
+in scu_info.c , SCU500 Value =2002
+in scu_info.c , SCU510 Value =0
+in scu_info.c , SCU500 Value =1002022
+in scu_info.c , SCU510 Value =1
+RST: Power On
+eSPI Mode: SIO:Enable : SuperIO-2e
+Eth: MAC0: RMII/NCSI, MAC1: RMII/NCSI, MAC2: RGMII, MAC3: RMII/NCSI
+Model: Aspeed BMC
+DRAM:  already initialized, 512 MiB (capacity:512 MiB, VGA:0 MiB), ECC off
+PCIE-0: Link down
+MMC:   emmc_slot0@100: 0
+Loading Environment from SPI Flash... SF: Detected mx66l1g45g with page size 256 Bytes, erase size 4 KiB, total 128 MiB
+OK
+In:    serial@1e784000
+Out:   serial@1e784000
+Err:   serial@1e784000
+Model: Aspeed BMC
+Net:
+Warning: ftgmac@1e670000 (eth2) using random MAC address - aa:08:b6:9a:da:88
+eth2: ftgmac@1e670000
+Hit any key to stop autoboot:  0
+## Loading kernel from FIT Image at 20100000 ...
+   Using 'conf@aspeed-bmc-opp-tacoma.dtb' configuration
+   Trying 'kernel@1' kernel subimage
+     Description:  Linux kernel
+     Type:         Kernel Image
+     Compression:  uncompressed
+     Data Start:   0x20100124
+     Data Size:    4089984 Bytes = 3.9 MiB
+     Architecture: ARM
+     OS:           Linux
+     Load Address: 0x80001000
+     Entry Point:  0x80001000
+     Hash algo:    sha256
+     Hash value:   20a0e1533095451b6eaaac2a614510a880cd4f88356ba41d939a07d3741cb2e1
+   Verifying Hash Integrity ... sha256+ OK
+## Loading ramdisk from FIT Image at 20100000 ...
+   Using 'conf@aspeed-bmc-opp-tacoma.dtb' configuration
+   Trying 'ramdisk@1' ramdisk subimage
+     Description:  obmc-phosphor-initramfs
+     Type:         RAMDisk Image
+     Compression:  uncompressed
+     Data Start:   0x204f46f0
+     Data Size:    1091408 Bytes = 1 MiB
+     Architecture: ARM
+     OS:           Linux
+     Load Address: unavailable
+     Entry Point:  unavailable
+     Hash algo:    sha256
+     Hash value:   c80be6170c6a069ea444ce090015e9a81a94e8594f630541e6377bdaba675cd9
+   Verifying Hash Integrity ... sha256+ OK
+## Loading fdt from FIT Image at 20100000 ...
+   Using 'conf@aspeed-bmc-opp-tacoma.dtb' configuration
+   Trying 'fdt@aspeed-bmc-opp-tacoma.dtb' fdt subimage
+     Description:  Flattened Device Tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x204e6abc
+     Data Size:    56165 Bytes = 54.8 KiB
+     Architecture: ARM
+     Hash algo:    sha256
+     Hash value:   1d46cd953b088307fa8b3ba581d148ce6867329d715ac382de8671485933e01f
+   Verifying Hash Integrity ... sha256+ OK
+   Booting using the fdt blob at 0x204e6abc
+   Loading Kernel Image ... OK
+   Loading Ramdisk to 8fef5000, end 8ffff750 ... OK
+   Loading Device Tree to 8fee4000, end 8fef4b64 ... OK
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0xf00
+[    0.000000] Linux version 5.4.48 (oe-user@oe-host) (gcc version 10.2.0 (GCC)) #1 SMP Sun Apr 11 14:00:40 UTC 2021
+[    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: AST2600 A1 EVB
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] Reserved memory: created CMA memory pool at 0x9f000000, size 16 MiB
+[    0.000000] OF: reserved mem: initialized node framebuffer, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created CMA memory pool at 0x94000000, size 64 MiB
+[    0.000000] OF: reserved mem: initialized node rvas, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x9ee00000, size 2 MiB
+[    0.000000] OF: reserved mem: initialized node ssp_memory, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created CMA memory pool at 0x90000000, size 64 MiB
+[    0.000000] OF: reserved mem: initialized node video, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x9ed00000, size 1 MiB
+[    0.000000] OF: reserved mem: initialized node bmc_dev_memory, compatible id shared-dma-pool
+[    0.000000] cma: Reserved 16 MiB at 0x9dc00000
+[    0.000000] percpu: Embedded 20 pages/cpu s49548 r8192 d24180 u81920
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 112896
+[    0.000000] Kernel command line: console=ttyS4,115200n8 root=/dev/ram rw
+[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] Memory: 271984K/455680K available (9216K kernel code, 570K rwdata, 2368K rodata, 1024K init, 188K bss, 19856K reserved, 163840K cma-reserved, 0K highmem)
+[    0.000000] random: get_random_u32 called from cache_alloc_refill+0x428/0x980 with crng_init=0
+[    0.000000] ftrace: allocating 29631 entries in 58 pages
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu:     RCU event tracing is enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] arch_timer: cp15 timer(s) running at 1200.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x114c1bbbeec, max_idle_ns: 440795229572 ns
+[    0.000006] sched_clock: 56 bits at 1200MHz, resolution 0ns, wraps every 2199023255551ns
+[    0.000014] Switching to timer-based delay loop, resolution 0ns
+[    0.000761] Calibrating delay loop (skipped), value calculated using timer frequency.. 2400.00 BogoMIPS (lpj=12000000)
+[    0.000777] pid_max: default: 32768 minimum: 301
+[    0.000976] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.000987] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.001655] CPU: Testing write buffer coherency: ok
+[    0.002623] Setting up static identity map for 0x80100000 - 0x80100060
+[    0.002726] rcu: Hierarchical SRCU implementation.
+[    0.005119] smp: Bringing up secondary CPUs ...
+[    0.005817] smp: Brought up 1 node, 2 CPUs
+[    0.005829] SMP: Total of 2 processors activated (4800.00 BogoMIPS).
+[    0.005834] CPU: All CPU(s) started in SVC mode.
+[    0.006316] devtmpfs: initialized
+[    0.016739] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+[    0.016972] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.016994] futex hash table entries: 512 (order: 3, 32768 bytes, linear)
+[    0.022073] pinctrl core: initialized pinctrl subsystem
+[    0.022720] NET: Registered protocol family 16
+[    0.023931] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.024928] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.024940] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.046732] vgaarb: loaded
+[    0.047072] SCSI subsystem initialized
+[    0.047276] usbcore: registered new interface driver usbfs
+[    0.047319] usbcore: registered new interface driver hub
+[    0.047379] usbcore: registered new device driver usb
+[    0.047460] videodev: Linux video capture interface: v2.00
+[    0.047502] pps_core: LinuxPPS API ver. 1 registered
+[    0.047508] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.047529] PTP clock support registered
+[    0.047545] EDAC MC: Ver: 3.0.0
+[    0.049043] clocksource: Switched to clocksource arch_sys_counter
+[    0.079911] NET: Registered protocol family 2
+[    0.080398] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 6144 bytes, linear)
+[    0.080423] TCP established hash table entries: 4096 (order: 2, 16384 bytes, linear)
+[    0.080458] TCP bind hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.080510] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.080596] UDP hash table entries: 256 (order: 1, 8192 bytes, linear)
+[    0.080626] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes, linear)
+[    0.080805] NET: Registered protocol family 1
+[    0.080850] PCI: CLS 0 bytes, default 64
+[    0.081094] Trying to unpack rootfs image as initramfs...
+[    0.486436] Freeing initrd memory: 1068K
+[    0.488103] workingset: timestamp_bits=30 max_order=17 bucket_order=0
+[    0.488602] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.488645] jffs2: version 2.2. (SUMMARY)  ? 2001-2006 Red Hat, Inc.
+[    0.488866] NET: Registered protocol family 38
+[    0.491132] shpchp: Standard Hot Plug PCI Controller Driver version: 0.4
+[    0.491754] PCIE- Link down
+[    0.491791] aspeed-pcie 1e6ed200.pcie: host bridge /ahb/apb/pcie@1e6ed2000 ranges:
+[    0.491837] aspeed-pcie 1e6ed200.pcie:    IO 0x00010000..0x0001ffff -> 0x00010000
+[    0.491860] aspeed-pcie 1e6ed200.pcie:   MEM 0x70000000..0x7ffffffe -> 0x70000000
+[    0.492010] aspeed-pcie 1e6ed200.pcie: PCI host bridge to bus 0000:00
+[    0.492026] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    0.492037] pci_bus 0000:00: root bus resource [io  0x0000-0xffff] (bus address [0x10000-0x1ffff])
+[    0.492046] pci_bus 0000:00: root bus resource [mem 0x70000000-0x7ffffffe]
+[    0.492085] pci 0000:00:00.0: [1a03:2600] type 00 class 0x060000
+[    0.496211] PCI: bus0: Fast back to back transfers disabled
+[    0.496766] switchtec: loaded.
+[    0.497458] aspeed-kcs-bmc: channel=1 addr=0xca0 idr=0x24 odr=0x30 str=0x3c
+[    0.497733] aspeed-kcs-bmc: channel=2 addr=0xca8 idr=0x28 odr=0x34 str=0x40
+[    0.497973] aspeed-kcs-bmc: channel=3 addr=0xca2 idr=0x2c odr=0x38 str=0x44
+[    0.500046] aspeed_mctp 1e6e8000.mctp: failed to find pcie resouce
+[    0.500062] ------------[ cut here ]------------
+[    0.500082] WARNING: CPU: 0 PID: 1 at arch/arm/mm/dma-mapping.c:846 __arm_dma_free.constprop.0+0x174/0x17c
+[    0.500088] Freeing invalid buffer (ptrval)
+[    0.500093] Modules linked in:
+[    0.500104] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.4.48 #1
+[    0.500109] Hardware name: Generic DT based system
+[    0.500114] Backtrace:
+[    0.500127] [<8010eed4>] (dump_backtrace) from [<8010f14c>] (show_stack+0x20/0x24)
+[    0.500136]  r7:0000034e r6:60000013 r5:00000000 r4:80e647a0
+[    0.500149] [<8010f12c>] (show_stack) from [<809bb2f4>] (dump_stack+0x94/0xa8)
+[    0.500161] [<809bb260>] (dump_stack) from [<80123a74>] (__warn+0xe0/0x108)
+[    0.500169]  r7:0000034e r6:80119514 r5:00000009 r4:80b24a84
+[    0.500179] [<80123994>] (__warn) from [<80123e8c>] (warn_slowpath_fmt+0xa8/0xcc)
+[    0.500187]  r7:80119514 r6:0000034e r5:80b24a84 r4:80b24aa0
+[    0.500198] [<80123de8>] (warn_slowpath_fmt) from [<80119514>] (__arm_dma_free.constprop.0+0x174/0x17c)
+[    0.500207]  r8:00000cc0 r7:0001a000 r6:a0000013 r5:8c6d44b0 r4:80e0db70
+[    0.500216] [<801193a0>] (__arm_dma_free.constprop.0) from [<80119540>] (arm_dma_free+0x24/0x2c)
+[    0.500224]  r6:8011951c r5:8c6d44b0 r4:9d1ec810
+[    0.500235] [<8011951c>] (arm_dma_free) from [<80196f70>] (dma_free_attrs+0xc0/0xdc)
+[    0.500247] [<80196eb0>] (dma_free_attrs) from [<80548630>] (aspeed_mctp_probe+0x408/0x64c)
+[    0.500256]  r8:0001a000 r7:9d1ec810 r6:fffffff4 r5:9d1ec800 r4:8c6d4440
+[    0.500267] [<80548228>] (aspeed_mctp_probe) from [<805eb8a0>] (platform_drv_probe+0x58/0xa8)
+[    0.500277]  r10:00000000 r9:80e3bc80 r8:80eb5f70 r7:00000000 r6:80e3bc80 r5:9d1ec810
+[    0.500282]  r4:00000000
+[    0.500293] [<805eb848>] (platform_drv_probe) from [<805e8bf0>] (really_probe+0x108/0x49c)
+[    0.500301]  r7:00000000 r6:00000000 r5:80eb5f6c r4:9d1ec810
+[    0.500312] [<805e8ae8>] (really_probe) from [<805e9524>] (driver_probe_device+0x190/0x1c4)
+[    0.500323]  r10:80d80ec8 r9:80d59854 r8:80d0050c r7:80e3bc80 r6:9d1ec854 r5:80e3bc80
+[    0.500327]  r4:9d1ec810
+[    0.500338] [<805e9394>] (driver_probe_device) from [<805e9888>] (device_driver_attach+0xb8/0xc0)
+[    0.500347]  r8:80d0050c r7:80e3bc80 r6:9d1ec854 r5:00000000 r4:9d1ec810
+[    0.500358] [<805e97d0>] (device_driver_attach) from [<805e992c>] (__driver_attach+0x9c/0x150)
+[    0.500366]  r7:80e3f630 r6:9d1ec810 r5:80e3bc80 r4:00000000
+[    0.500377] [<805e9890>] (__driver_attach) from [<805e6538>] (bus_for_each_dev+0x88/0xd0)
+[    0.500385]  r7:80e3f630 r6:805e9890 r5:80e3bc80 r4:00000000
+[    0.500395] [<805e64b0>] (bus_for_each_dev) from [<805e8328>] (driver_attach+0x2c/0x30)
+[    0.500402]  r6:00000000 r5:8c6d7c00 r4:80e3bc80
+[    0.500413] [<805e82fc>] (driver_attach) from [<805e7de0>] (bus_add_driver+0x120/0x20c)
+[    0.500423] [<805e7cc0>] (bus_add_driver) from [<805ea5b4>] (driver_register+0x98/0x128)
+[    0.500431]  r7:80c4e7dc r6:00000000 r5:00000000 r4:80e3bc80
+[    0.500439] [<805ea51c>] (driver_register) from [<805eb7f4>] (__platform_driver_register+0x50/0x58)
+[    0.500446]  r5:80e8f000 r4:80e3f630
+[    0.500459] [<805eb7a4>] (__platform_driver_register) from [<80d2e84c>] (aspeed_mctp_driver_init+0x24/0x28)
+[    0.500465]  r5:80e8f000 r4:80d2e828
+[    0.500477] [<80d2e828>] (aspeed_mctp_driver_init) from [<80103148>] (do_one_initcall+0x54/0x264)
+[    0.500488] [<801030f4>] (do_one_initcall) from [<80d012b8>] (kernel_init_freeable+0x160/0x1f4)
+[    0.500496]  r7:80c4e7dc r6:80d59834 r5:80e8f000 r4:00000007
+[    0.500506] [<80d01158>] (kernel_init_freeable) from [<809d4ca4>] (kernel_init+0x18/0x120)
+[    0.500516]  r10:00000000 r9:00000000 r8:00000000 r7:00000000 r6:00000000 r5:809d4c8c
+[    0.500520]  r4:00000000
+[    0.500529] [<809d4c8c>] (kernel_init) from [<801010e8>] (ret_from_fork+0x14/0x2c)
+[    0.500535] Exception stack(0x9d0c1fb0 to 0x9d0c1ff8)
+[    0.500543] 1fa0:                                     00000000 00000000 00000000 00000000
+[    0.500553] 1fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    0.500561] 1fe0: 00000000 00000000 00000000 00000000 00000013 00000000
+[    0.500567]  r5:809d4c8c r4:00000000
+[    0.500580] ---[ end trace c74e1d745671d3f2 ]---
+[    0.500585] aspeed_mctp: driver init failed (ret=-12)!
+[    0.500628] aspeed_mctp: probe of 1e6e8000.mctp failed with error -12
+[    0.501110] aspeed_mctp 1e6f9000.mctp: failed to find pcie resouce
+[    0.501124] ------------[ cut here ]------------
+[    0.501140] WARNING: CPU: 0 PID: 1 at arch/arm/mm/dma-mapping.c:846 __arm_dma_free.constprop.0+0x174/0x17c
+[    0.501146] Freeing invalid buffer (ptrval)
+[    0.501150] Modules linked in:
+[    0.501161] CPU: 0 PID: 1 Comm: swapper/0 Tainted: G        W         5.4.48 #1
+[    0.501165] Hardware name: Generic DT based system
+[    0.501170] Backtrace:
+[    0.501182] [<8010eed4>] (dump_backtrace) from [<8010f14c>] (show_stack+0x20/0x24)
+[    0.501192]  r7:0000034e r6:60000013 r5:00000000 r4:80e647a0
+[    0.501203] [<8010f12c>] (show_stack) from [<809bb2f4>] (dump_stack+0x94/0xa8)
+[    0.501214] [<809bb260>] (dump_stack) from [<80123a74>] (__warn+0xe0/0x108)
+[    0.501222]  r7:0000034e r6:80119514 r5:00000009 r4:80b24a84
+[    0.501232] [<80123994>] (__warn) from [<80123e8c>] (warn_slowpath_fmt+0xa8/0xcc)
+[    0.501240]  r7:80119514 r6:0000034e r5:80b24a84 r4:80b24aa0
+[    0.501250] [<80123de8>] (warn_slowpath_fmt) from [<80119514>] (__arm_dma_free.constprop.0+0x174/0x17c)
+[    0.501259]  r8:00000cc0 r7:0001a000 r6:a0000013 r5:8c6d44b0 r4:80e0db70
+[    0.501269] [<801193a0>] (__arm_dma_free.constprop.0) from [<80119540>] (arm_dma_free+0x24/0x2c)
+[    0.501276]  r6:8011951c r5:8c6d44b0 r4:9d1ee810
+[    0.501287] [<8011951c>] (arm_dma_free) from [<80196f70>] (dma_free_attrs+0xc0/0xdc)
+[    0.501298] [<80196eb0>] (dma_free_attrs) from [<80548630>] (aspeed_mctp_probe+0x408/0x64c)
+[    0.501307]  r8:0001a000 r7:9d1ee810 r6:fffffff4 r5:9d1ee800 r4:8c6d4440
+[    0.501317] [<80548228>] (aspeed_mctp_probe) from [<805eb8a0>] (platform_drv_probe+0x58/0xa8)
+[    0.501327]  r10:00000000 r9:80e3bc80 r8:80eb5f70 r7:00000000 r6:80e3bc80 r5:9d1ee810
+[    0.501332]  r4:00000000
+[    0.501343] [<805eb848>] (platform_drv_probe) from [<805e8bf0>] (really_probe+0x108/0x49c)
+[    0.501351]  r7:00000000 r6:00000000 r5:80eb5f6c r4:9d1ee810
+[    0.501362] [<805e8ae8>] (really_probe) from [<805e9524>] (driver_probe_device+0x190/0x1c4)
+[    0.501372]  r10:80d80ec8 r9:80d59854 r8:80d0050c r7:80e3bc80 r6:9d1ee854 r5:80e3bc80
+[    0.501377]  r4:9d1ee810
+[    0.501388] [<805e9394>] (driver_probe_device) from [<805e9888>] (device_driver_attach+0xb8/0xc0)
+[    0.501397]  r8:80d0050c r7:80e3bc80 r6:9d1ee854 r5:00000000 r4:9d1ee810
+[    0.501408] [<805e97d0>] (device_driver_attach) from [<805e992c>] (__driver_attach+0x9c/0x150)
+[    0.501416]  r7:80e3f630 r6:9d1ee810 r5:80e3bc80 r4:00000000
+[    0.501427] [<805e9890>] (__driver_attach) from [<805e6538>] (bus_for_each_dev+0x88/0xd0)
+[    0.501435]  r7:80e3f630 r6:805e9890 r5:80e3bc80 r4:00000000
+[    0.501445] [<805e64b0>] (bus_for_each_dev) from [<805e8328>] (driver_attach+0x2c/0x30)
+[    0.501452]  r6:00000000 r5:8c6d7c00 r4:80e3bc80
+[    0.501463] [<805e82fc>] (driver_attach) from [<805e7de0>] (bus_add_driver+0x120/0x20c)
+[    0.501473] [<805e7cc0>] (bus_add_driver) from [<805ea5b4>] (driver_register+0x98/0x128)
+[    0.501481]  r7:80c4e7dc r6:00000000 r5:00000000 r4:80e3bc80
+[    0.501490] [<805ea51c>] (driver_register) from [<805eb7f4>] (__platform_driver_register+0x50/0x58)
+[    0.501496]  r5:80e8f000 r4:80e3f630

@@ -1,0 +1,10 @@
+Unit]
+Description=Echo Server
+
+[Service]
+Type=simple
+ExecStart=/opt/echo_server.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

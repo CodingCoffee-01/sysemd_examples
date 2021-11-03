@@ -1,0 +1,24 @@
+sudo nano /opt/echo_server.py
+sudo chmod +x /opt/echo_server.py
+
+run :
+/opt/echo_server.py
+
+in another terminal :
+nc localhost 9000
+
+sudo nano /etc/systemd/system/echo_server.service
+
+sudo chmod 644 /etc/systemd/system/echo_server.service
+
+sudo systemctl start echo_server
+
+sudo systemctl status echo_server
+
+sudo systemctl stop echo_server
+
+// Enable Power on start service automatically 
+sudo systemctl enable echo_server
+
+// disable Power on start service automatically
+sudo systemctl disable echo_server

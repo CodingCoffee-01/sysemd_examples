@@ -1,0 +1,20 @@
+
+console.log('Server running at http://${',hostname,'}:${',port,'}/');
+
+sudo nano /opt/test_server.js
+
+sudo nano /etc/systemd/system/nodejsserver.service
+
+sudo chmod 744  /opt/test_server.js
+
+sudo chmod 664 /etc/systemd/system/nodejsserver.service
+
+sudo systemctl daemon-reload
+
+sudo systemctl enable nodejsserver.service
+
+sudo systemctl start nodejsserver.service
+
+sudo systemctl status nodejsserver.service
+
+sudo systemctl restart nodejsserver.service
